@@ -1,0 +1,29 @@
+name: publish
+
+env:
+  NPM_CONFIG_PROVENANCE: true
+
+on:
+  # Run manually using the GitHub UI
+  workflow_dispatch:
+  # ...or whenever a GitHub release gets created
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 20
+
+      - name: Publish packages to npm
+        run: yarn nx release publish -d
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
