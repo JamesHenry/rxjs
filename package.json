@@ -20,6 +20,7 @@
   "packageManager": "yarn@1.22.21",
   "dependencies": {},
   "devDependencies": {
-    "lerna": "^7.3.0"
+    "@nx/js": "17.2.0-beta.9",
+    "nx": "17.2.0-beta.9"
   }
 }

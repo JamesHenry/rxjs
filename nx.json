@@ -1,0 +1,26 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "nxCloudAccessToken": "YThhZGMxZTUtYjdkYy00NzE2LTg5OWQtODhjZTNhNmU3ZDE3fHJlYWQtd3JpdGU=",
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    }
+  },
+  "release": {
+    "releaseTagPattern": "{version}",
+    "groups": {
+      "npm": {
+        "projects": ["rxjs"],
+        "version": {
+          "generatorOptions": {
+            "currentVersionResolver": "git-tag",
+            "specifierSource": "conventional-commits"
+          }
+        },
+        "changelog": true
+      }
+    }
+  }
+}
